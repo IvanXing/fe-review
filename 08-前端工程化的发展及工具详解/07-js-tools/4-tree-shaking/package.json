@@ -1,0 +1,16 @@
+{
+  "name": "4-tree-shaking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^1.31.1"
+  },
+  "scripts": {
+    "rollup": "rollup index.js --file output.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

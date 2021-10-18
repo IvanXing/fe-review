@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="pushState()">pushState</button>
+    <button onclick="replaceState()">replaceState</button>
+    <script>
+        function pushState() {
+            history.pushState({page: 1}, 'page-1', '/pushState')  // data  title url
+        }
+        function replaceState() {
+            history.replaceState({page: 2}, 'page-2', '/replaceState')
+        }
+        // 前进 后退 监听hisroty 的值 
+        window.onpopstate = function() {
+            console.log(history, history.state)
+        }
+    </script>
+</body>
+</html>
+
+<!-- location.href 会向服务器请求html -->
+<!-- hash 不会发送给后端，记录在客户端，刷新会消失 -->

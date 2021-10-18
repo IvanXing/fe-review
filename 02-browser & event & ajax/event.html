@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child">child</div>
+    </div>
+
+    <!-- <a href="/test" id="a">链接</a> -->
+
+    <script>
+
+      // const $a = document.getElementById('a')
+      // console.log($a)
+      // console.dir($a)
+      // $a.addEventListener('click', event => {
+      //   event.preventDefault()
+      //   console.log('阻止默认跳转行为')
+      // })
+
+      const $parent = document.getElementById('parent');
+      const $child = document.getElementById('child');
+
+      // 不加参数，事件在捕获阶段触发，加参数在冒泡阶段触发
+      // 捕获从外向内，冒泡从内向外
+
+      /*
+      * 1. 冒泡 先child click  后 parent click
+      */
+      // $parent.addEventListener('click', function (event) {
+      //   console.log('parent click');
+      // });
+      // $child.addEventListener('click', function (event) {
+      //   console.log('child click');
+      // });
+
+      /*
+      * 2. 加第二个参数，在捕获阶段触发 先 parent click 后 child click
+      */
+      // $parent.addEventListener('click', function (event) {
+      //   // target 就是点击的对象 和  currentTarget 就是this
+      //   console.log($parent, event.target, event.currentTarget === $parent)
+      //   console.log('parent click');
+      // }, true);
+      // $child.addEventListener('click', function (event) {
+      //   console.log('child click');
+      // });
+      
+      /*
+      * 3. 冒泡阶段阻止 event.stopPropagation();
+      */
+      // $parent.addEventListener('click', function (event) {
+      //   console.log('parent click');
+      // });
+      // $child.addEventListener('click', function (event) {
+      //   event.stopPropagation();
+      //   console.log('child1 click');
+      // });
+      // // $child.addEventListener('click', function (event) {
+      // //   console.log('child2 click');
+      // // });
+
+      
+      /*
+      * 4. 冒泡阶段立即阻止 event.stopImmediatePropagation();
+      */
+      $parent.addEventListener('click', function (event) {
+        console.log('parent click');
+      });
+      $child.addEventListener('click', function (event) {
+        event.stopImmediatePropagation();
+        console.log('child1 click');
+      });
+      $child.addEventListener('click', function (event) {
+        console.log('child2 click');
+      });
+    </script>
+  </body>
+</html>
+
+
+<!-- 事件委托  列表循环出来的，需要点击，事件委托给祖先元素 -->
