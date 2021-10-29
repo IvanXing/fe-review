@@ -1,0 +1,28 @@
+<!--函数防抖：事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时-->
+<!--应用场景：搜索框，后台管理系统数据查询-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>debounce</title>
+</head>
+<body>
+<input type="text" id="searchElement">
+<script>
+  const searchElement = document.getElementById("searchElement");
+  // 1.返回值是函数
+  // 2.固定间隔执行·事件响应函数
+  const debounce = (fn, initial) => {
+    let timer = null;   // 每次触发就要重新计时
+    return () => {
+      clearTimeout(timer)  // 清空上次定时器
+      timer = setTimeout(fn, initial)
+    }
+  }
+  searchElement.oninput = debounce(function (event) {
+    const value = searchElement.value;
+    console.log(`value`, value);
+  }, 1000)
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!--函数节流：在一个单位时间内，事件响应函数只能被触发一次，如果这个单位时间内触发多次，只有一次生效-->
+<!--使用场景：window.onresize 事件  浏览器视口不断被放大缩小-->
+<!--        window.onmousemove 事件-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>throttle</title>
+</head>
+<body>
+<script>
+  // window.onresize
+  // 1 单位时间内 2 只触发一次
+
+  // 1 返回值是一个函数
+  // 2 开启定时器
+  // 3 如果定时器存在直接返回 false
+  // 4 定时器内部清空定时器 并且把timer 置为null 然后执行我们的事件响应函数
+  function throttle(fn, interval) {
+    let timer;
+    return (event) => {
+      if (timer) {
+        return false;
+      }
+      timer = setTimeout(() => {
+        clearTimeout(timer);
+        timer = null;
+        fn(event)
+      }, interval);
+    }
+  }
+
+  // window.onmousemove = function(event){
+  //   console.log(`event`, event)
+  // }
+
+
+  window.onresize = throttle(function (event) {
+    console.log(`event`, event)
+  }, 1000)
+
+
+</script>
+</body>
+</html>
