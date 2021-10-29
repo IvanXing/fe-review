@@ -74,6 +74,7 @@ console.log( fn1() ) // 相当于 Promise.resolve(100)
 ```
 
 - await 后面跟 Promise 对象：会阻断后续代码，等待状态变为 resolved ，才获取结果并继续执行
+  - 相当于promise的then
 - await 后续跟非 Promise 对象：会直接返回
 
 ```js
@@ -128,17 +129,32 @@ await 是同步写法，但本质还是异步调用。
 ```js
 async function async1 () {
   console.log('async1 start')
-  await async2()
+  await async2()  // 这是个promise 遇到await 下面在异步中
+  // saync2.then(下面三行都在这里)
   console.log('async1 end') // 关键在这一步，它相当于放在 callback 中，最后执行
+  await async3()
+  console.log('async 1 end 2')
 }
 
 async function async2 () {
   console.log('async2')
 }
 
+async function async3 () {
+  console.log('async3')
+}
+
 console.log('script start')
 async1()
 console.log('script end')
+
+// script start
+// async1 start
+// async2
+// script end
+// async1 end
+// async3
+// async 1 end 2
 ```
 
 即，只要遇到了 `await` ，后面的代码都相当于放在 callback 里。
@@ -155,7 +171,7 @@ function multi(num) {
     })
 }
 
-// // 使用 forEach ，是 1s 之后打印出所有结果，即 3 个值是一起被计算出来的
+// // 使用 forEach ，是 1s 之后打印出所有结果，即 3 个值是一起被计算出来的  同时发出请求
 // function test1 () {
 //     const nums = [1, 2, 3];
 //     nums.forEach(async x => {
@@ -163,7 +179,8 @@ function multi(num) {
 //         console.log(res);
 //     })
 // }
-// test1();
+// test1();  
+// 同时打印
 
 // 使用 for...of ，可以让计算挨个串行执行
 async function test2 () {

@@ -29,3 +29,21 @@ $('#btn1').click(function (e) {
 console.log('Bye')
 </script>
 ```
+---
+
+DOM的主动点击和被动点击
+
+```js
+const boxDom = document.querySelector('.box')
+console.log(1)
+ 
+boxDom.addEventListener('click', () => {
+ console.log(2)
+})
+ 
+boxDom.click()
+console.log(3)
+
+// 输出1 2 3
+```
+

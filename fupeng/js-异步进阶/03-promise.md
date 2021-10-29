@@ -114,6 +114,8 @@ Promise.resolve().then(() => {
 }).then(() => {
     console.log(3)
 })
+// reslove 输出1，没有reject，不走catch，走打印3
+
 
 // 第二题
 Promise.resolve().then(() => { // 返回 rejected 状态的 promise
@@ -124,6 +126,8 @@ Promise.resolve().then(() => { // 返回 rejected 状态的 promise
 }).then(() => {
     console.log(3)
 })
+// 打印1，报错，执行catch，打印2，无报错，打印3
+
 
 // 第三题
 Promise.resolve().then(() => { // 返回 rejected 状态的 promise
@@ -134,4 +138,5 @@ Promise.resolve().then(() => { // 返回 rejected 状态的 promise
 }).catch(() => {
     console.log(3)
 })
+// 打印 1  2 无报错，不走catch了
 ```
