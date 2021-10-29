@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>absote relative 定位问题</title>
+  <style type="text/css">
+      body {
+          margin: 20px;
+      }
+
+      .relative {
+          position: relative;
+          width: 400px;
+          height: 200px;
+          border: 1px solid #ccc;
+
+          top: 20px;
+          left: 50px;
+      }
+
+      .absolute {
+          position: absolute;
+          width: 200px;
+          height: 100px;
+          border: 1px solid blue;
+
+          top: 20px;
+          left: 50px;
+      }
+  </style>
+</head>
+<body>
+
+<p>absolute 和 relative 定位问题</p>
+<div class="relative">
+  <div class="absolute">
+    this is absolute
+  </div>
+</div>
+<!--    <script>-->
+<!--        function Foo() {-->
+<!--          Foo.getValue = function () {-->
+<!--            console.log(1)-->
+<!--          }-->
+<!--          this.getValue = function () {-->
+<!--            console.log(2)-->
+<!--          }-->
+<!--        }-->
+
+<!--        Foo.prototype.getValue = function () {-->
+<!--          console.log(3)-->
+<!--        }-->
+
+<!--        Foo.getValue = function () {-->
+<!--          console.log(4)-->
+<!--        }-->
+
+<!--        Foo.getValue()-->
+
+<!--        let obj = new Foo();-->
+
+<!--        console.log(obj)-->
+
+<!--        obj.getValue();-->
+<!--        Foo.getValue();-->
+
+<!--        function Foo2() {}-->
+<!--        Foo2.getValue = function () {-->
+<!--          console.log(5)-->
+<!--        }-->
+<!--        Foo2.prototype = new Foo()-->
+
+<!--        const obj2 = new Foo2();-->
+
+<!--        console.log(obj2)-->
+
+<!--        obj2.getValue();-->
+<!--    </script>-->
+</body>
+</html>
