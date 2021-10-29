@@ -1,6 +1,7 @@
 const list = document.getElementById('list')
 
 // 创建一个文档片段，此时还没有插入到 DOM 结构中
+// 一次性插入20个 创建fragment
 const frag = document.createDocumentFragment()
 
 for (let i  = 0; i < 20; i++) {

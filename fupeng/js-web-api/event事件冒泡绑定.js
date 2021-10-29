@@ -21,7 +21,7 @@ function bindEvent(elem, type, selector, fn) {
     })
 }
 
-// 普通绑定
+// 事件绑定
 const btn1 = document.getElementById('btn1')
 bindEvent(btn1, 'click', function (event) {
     // console.log(event.target) // 获取触发的元素
@@ -29,7 +29,7 @@ bindEvent(btn1, 'click', function (event) {
     alert(this.innerHTML)
 })
 
-// 代理绑定
+// 代理绑定 绑定到父元素 循环 利用冒泡
 const div3 = document.getElementById('div3')
 bindEvent(div3, 'click', 'a', function (event) {
     event.preventDefault()

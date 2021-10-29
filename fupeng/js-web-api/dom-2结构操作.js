@@ -25,4 +25,5 @@ const div1ChildNodesP = Array.prototype.slice.call(div1.childNodes).filter(child
 })
 console.log('div1ChildNodesP', div1ChildNodesP)
 
+//删除节点
 div1.removeChild( div1ChildNodesP[0] )
