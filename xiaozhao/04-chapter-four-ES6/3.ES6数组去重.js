@@ -1,3 +1,6 @@
+const array2 = [1,3,4,1,2,3]
+
+// 引用地址不同，不能排重
 const array = [{
   name:"freemen",
   age:18
