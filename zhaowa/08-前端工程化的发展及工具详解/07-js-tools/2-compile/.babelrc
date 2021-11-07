@@ -3,9 +3,9 @@
         [
             "@babel/preset-env",
             {
-                "targets": "> 0.5%",
-                "useBuiltIns": "usage",
-                "corejs": 2
+                "targets": "> 0.5%",   // 在caniuse网站上 兼容大于使用量0.5%的浏览器
+                "useBuiltIns": "usage",  // 运行时解析依赖了polyfill的内容，只加载用到的内容
+                "corejs": 2   //  corejs的版本  配置后不用刻意引入polyfill
             }
         ]
     ]

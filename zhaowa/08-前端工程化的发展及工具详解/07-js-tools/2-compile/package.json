@@ -19,3 +19,7 @@
     "core-js": "2"
   }
 }
+
+// polyfill 会写在prorotype上的兼容方法  方法，腻子
+// babel是在静态阶段的处理（可以在devDep上）解析语法，polyfill是在运行时加在prototype上的（在dependencies 上）
+// core-js 实现es7 es8的方法   polyfill也依赖core.js
