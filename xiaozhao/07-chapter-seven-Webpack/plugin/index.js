@@ -1,3 +1,3 @@
 function render(){
-    return 'freemen' asd;
+    return 'freemen';
 }

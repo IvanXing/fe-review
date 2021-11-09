@@ -5,12 +5,13 @@ class LogPlugin{
     constructor(options){
        this.options = options;
     }
-    apply(compiler){ 
+    apply(compiler){
         compiler.hooks.run.tap('run',()=>{
             console.log('start run');
         })
         compiler.hooks.done.tapAsync('getStats',(stats)=>{
         console.log(this.options);
+        // Plugin中获取源码
         //    stats.compilation.modules.forEach((item)=>{
         //        const source = item['resource'];
         //        const data = fs.readFileSync(source,{encoding:'utf8'})
