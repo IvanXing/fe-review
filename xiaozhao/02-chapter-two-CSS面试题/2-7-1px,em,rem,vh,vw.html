@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>如何区分 px/em/rem/vh/vw ?</title> 
+  <title>如何区分 px/em/rem/vh/vw ?</title>
   <style>
     /* 基础样式 */
     * {
@@ -15,7 +15,7 @@
     html {
       font-size: 100px;
     }
-  
+
     div {
       font-size: 20px;
       display: flex;
@@ -31,23 +31,23 @@
     /* 章节内容 */
     .px-box {
       width: 200px;
-      background: red;  
+      background: red;
     }
-    
+
     .em-box {
-      /* 200px */
-      width: 10em; 
-      background: green;   
+      /* 200px font-size: 20px; 1em = 20px*/
+      width: 10em;
+      background: green;
     }
-    
+
     .rem-box {
-      /* 200px */
+      /* 200px html中font-size 100px 1rem = 100px 根节点没有给定字体大小，会根据当前浏览器默认字体大小*/
       width: 2rem;
       background:blue;
     }
-    
+
     .vw-vh-box {
-      width: 100vw; 
+      width: 100vw;
       height: 40vh;
       background: yellow;
     }
@@ -61,7 +61,7 @@
   </div>
   <!-- 相对长度单位, 相对于当前元素内文本的字体尺寸 -->
   <div class="em-box">
-    em-box - 10em  
+    em-box - 10em
   </div>
   <!-- rem是CSS3新增的一个相对单位 ，基于 html 元素的字体大小来决定 -->
   <div class="rem-box">

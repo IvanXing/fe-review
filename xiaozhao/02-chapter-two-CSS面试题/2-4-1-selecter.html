@@ -10,13 +10,24 @@
       width:60px;
     }
     /* 每一个 <p> 元素的第一行。 */
+    /*伪元素是一个附加至选择器末的关键词，允许你对被选择元素的特定部分修改样式*/
+    /*伪元素选择器*/
     p::first-line {
       color: blue;
       text-transform: uppercase;
     }
+    /*标签属性选择器*/
+    a[title] {
+        border: 1px solid black;
+        color: red;
+    }
+    a[href="https://example.org"] {
+        color: green;
+    }
   </style>
 </head>
 <body>
+    <a href="sss" title="点我">点我跳转</a>
     <p>
       慕课网程序员的梦工厂
     </p>
