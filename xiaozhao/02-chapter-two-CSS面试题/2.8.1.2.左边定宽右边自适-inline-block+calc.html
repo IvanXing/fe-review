@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>左边定宽右边自适-inline-block+calc</title>
   <style>
-  
+
     * {
       margin:0;
       padding:0;
@@ -27,7 +27,7 @@
 
     .right-box {
       display: inline-block;
-      width: calc(100% - 200px);
+      width: calc(100% - 200px);  /* 父元素宽度的100% 减去200px */
       height: 100%;
       background: blue;
     }
@@ -37,7 +37,7 @@
 <body>
   <div class="box-wrapper">
     <div class="left-box">
-      left-box 
+      left-box
     </div>
     <div class="right-box">
       right-box

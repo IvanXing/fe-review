@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> 左边定宽右边自适应 + position + calc</title>
   <style>
-  
+
     .box-wrapper {
       width: 600px;
       height: 400px;
       position: relative;
       border: 1px solid #000;
-    }  
+    }
 
     .left-box {
       width: 200px;
@@ -20,9 +20,9 @@
       background: red;
       position: absolute;
     }
-  
+
     .right-box {
-      padding-left:200px;
+      padding-left:200px;  /* 让出左边位置 */
       height: 100%;
       background: blue;
     }
@@ -32,7 +32,7 @@
 <body>
     <div class="box-wrapper">
       <div class="left-box">
-        left-box 
+        left-box
       </div>
       <div class="right-box">
         right-box
